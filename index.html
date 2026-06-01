@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sila Experts – Digitalisation de la santé</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --teal: #1D9E75;
+            --teal-dark: #0F6E56;
+            --teal-light: #E1F5EE;
+            --teal-mid: #9FE1CB;
+            --off-white: #F7FAF9;
+            --dark: #0D1F1A;
+            --dark2: #1A2E28;
+            --gray: #6B7C78;
+            --gray-light: #E8EEEC;
+            --white: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--off-white);
+            color: var(--dark);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 4rem;
+            background: rgba(247, 250, 249, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .nav-logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.4rem;
+            color: var(--teal-dark);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-logo span {
+            color: var(--teal);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray);
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--teal);
+        }
+
+        .nav-cta {
+            background: var(--teal);
+            color: var(--white) !important;
+            padding: 0.5rem 1.25rem;
+            border-radius: 100px;
+            transition: background 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--teal-dark) !important;
+            color: var(--white) !important;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 6rem 4rem 4rem;
+            gap: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(29, 158, 117, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--teal);
+            background: var(--teal-light);
+            padding: 0.35rem 0.9rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 4vw, 3.8rem);
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--teal);
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--gray);
+            max-width: 480px;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--teal);
+            color: var(--white);
+            padding: 0.85rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .btn-primary:hover {
+            background: var(--teal-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            border: 1.5px solid var(--teal-mid);
+            color: var(--teal-dark);
+            padding: 0.85rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--teal-light);
+            border-color: var(--teal);
+        }
+
+        /* Hero visual */
+        .hero-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            animation: fadeUp 0.9s ease 0.2s both;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-card {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: transform 0.2s;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .hero-card:first-child {
+            grid-column: span 2;
+            background: var(--dark2);
+            color: var(--white);
+        }
+
+        .hero-card .icon {
+            width: 44px;
+            height: 44px;
+            background: var(--teal-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .hero-card:first-child .icon {
+            background: rgba(29, 158, 117, 0.2);
+        }
+
+        .hero-card h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.35rem;
+        }
+
+        .hero-card p {
+            font-size: 0.825rem;
+            color: var(--gray);
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        .hero-card:first-child p {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-card:first-child h3 {
+            color: var(--white);
+            font-size: 1.1rem;
+        }
+
+        /* STATS */
+        .stats {
+            display: flex;
+            gap: 0;
+            background: var(--dark);
+            border-radius: 20px;
+            margin: 0 4rem 5rem;
+            overflow: hidden;
+        }
+
+        .stat {
+            flex: 1;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            color: var(--teal-mid);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin: 0;
+        }
+
+        /* SECTION GÉNÉRIQUE */
+        section {
+            padding: 5rem 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            max-width: 640px;
+            margin-bottom: 1rem;
+        }
+
+        .section-sub {
+            color: var(--gray);
+            max-width: 560px;
+            font-size: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        /* SERVICES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: border-color 0.2s, transform 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--teal);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--teal-mid);
+        }
+
+        .service-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.65;
+        }
+
+        /* PLATEFORME */
+        .platform {
+            background: var(--teal-light);
+            border-radius: 24px;
+            padding: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin: 0 0 5rem;
+        }
+
+        .platform-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        .platform-feature {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .feature-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--teal);
+            border-radius: 50%;
+            margin-top: 0.55rem;
+            flex-shrink: 0;
+        }
+
+        .platform-feature p {
+            font-size: 0.95rem;
+            color: var(--teal-dark);
+            margin: 0;
+        }
+
+        .platform-feature strong {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.1rem;
+        }
+
+        .platform-visual {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--teal-mid);
+        }
+
+        .platform-visual h4 {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--teal-dark);
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.03em;
+        }
+
+        .mockup-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--off-white);
+            border-radius: 10px;
+            margin-bottom: 0.6rem;
+            font-size: 0.85rem;
+            color: var(--dark);
+        }
+
+        .mockup-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--teal);
+            flex-shrink: 0;
+        }
+
+        .mockup-badge {
+            margin-left: auto;
+            font-size: 0.7rem;
+            background: var(--teal-light);
+            color: var(--teal-dark);
+            padding: 0.2rem 0.55rem;
+            border-radius: 100px;
+            font-weight: 500;
+        }
+
+        /* ABOUT */
+        .about {
+            background: var(--white);
+            border-radius: 24px;
+        }
+
+        .about-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--teal-light);
+            color: var(--teal-dark);
+            font-size: 0.825rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--teal);
+            border-radius: 50%;
+        }
+
+        .ceo-card {
+            background: var(--off-white);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--gray-light);
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .ceo-avatar {
+            width: 56px;
+            height: 56px;
+            background: var(--teal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.25rem;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .ceo-card h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.1rem;
+        }
+
+        .ceo-card p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .value-item {
+            background: var(--off-white);
+            border-radius: 12px;
+            padding: 1.25rem;
+            border: 1px solid var(--gray-light);
+        }
+
+        .value-item h4 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            color: var(--teal-dark);
+        }
+
+        .value-item p {
+            font-size: 0.825rem;
+            color: var(--gray);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* CONTACT */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--dark);
+            transition: border-color 0.2s, transform 0.15s;
+        }
+
+        .contact-item:hover {
+            border-color: var(--teal-mid);
+            transform: translateX(4px);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--teal-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            display: block;
+            margin-bottom: 0.1rem;
+        }
+
+        .contact-val {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .contact-form {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 20px;
+            padding: 2.5rem;
+        }
+
+        .contact-form h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .form-group {
+            margin-bottom: 1.1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: var(--gray);
+            text-transform: uppercase;
+            margin-bottom: 0.45rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid var(--gray-light);
+            border-radius: 10px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--dark);
+            background: var(--off-white);
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--teal);
+            background: var(--white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--teal);
+            color: var(--white);
+            border: none;
+            padding: 0.9rem;
+            border-radius: 100px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 0.5rem;
+        }
+
+        .form-submit:hover {
+            background: var(--teal-dark);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 3rem 4rem 2rem;
+            border-radius: 24px 24px 0 0;
+            margin-top: 2rem;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.875rem;
+            max-width: 280px;
+            margin-top: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            letter-spacing: 0.04em;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--teal-mid);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        .footer-logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        .footer-logo span {
+            color: var(--teal-mid);
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            animation: fadeIn 0.7s ease both;
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 5rem 1.5rem 3rem;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .stats {
+                margin: 0 1.5rem 3rem;
+                flex-direction: column;
+                border-radius: 16px;
+            }
+
+            .stat {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .platform {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+            }
+
+            .about-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            footer {
+                padding: 2.5rem 1.5rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="#" style="display:flex;align-items:center;gap:0.6rem;text-decoration:none;">
+            <img src="https://media.licdn.com/dms/image/v2/D4D0BAQFn_rjTHWdpJg/company-logo_200_200/B4DZUUtvDBHYAI-/0/1739809288760/sila_experts_logo?e=2147483647&v=beta&t=H1RBZ0qPW14GfdcCRBcmzwAKfT6m7N4w0p_FKDgOGtM"
+                alt="Sila Experts" style="height:38px;width:38px;border-radius:8px;object-fit:cover;">
+            <span class="nav-logo">Sila<span>Experts</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#plateforme">Plateforme</a></li>
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-label">Startup labellisée · Tunis, Tunisie</span>
+            <h1>La santé digitale,<br><em>simplement</em> accessible</h1>
+            <p>Sila Experts développe des solutions logicielles pour digitaliser les parcours de santé et améliorer l'expérience patient-médecin.</p>
+            <div class="hero-btns">
+                <a href="#services" class="btn-primary">Découvrir nos services</a>
+                <a href="#contact" class="btn-secondary">Prendre contact</a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="hero-card">
+                <div class="icon">🏥</div>
+                <h3>Plateforme Siladoc</h3>
+                <p>Digitalisation complète du parcours médical — de la prise de RDV à la téléconsultation.</p>
+            </div>
+            <div class="hero-card">
+                <div class="icon">📅</div>
+                <h3>RDV en ligne</h3>
+                <p>Prise de rendez-vous simplifiée 24h/24.</p>
+            </div>
+            <div class="hero-card">
+                <div class="icon">💊</div>
+                <h3>E-prescription</h3>
+                <p>Ordonnances numériques sécurisées.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat">
+            <span class="stat-num">siladoc.com</span>
+            <p>Plateforme principale</p>
+        </div>
+        <div class="stat">
+            <span class="stat-num">5+</span>
+            <p>Services santé digitalisés</p>
+        </div>
+        <div class="stat">
+            <span class="stat-num">360°</span>
+            <p>Couverture du parcours médical</p>
+        </div>
+        <div class="stat">
+            <span class="stat-num">100%</span>
+            <p>Startup labellisée</p>
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <span class="section-tag">Nos services</span>
+        <h2 class="section-title">Tout ce dont un cabinet médical a besoin, en une seule plateforme</h2>
+        <p class="section-sub">Des outils pensés pour les professionnels de santé et leurs patients, accessibles partout et à tout moment.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">📅</span>
+                <h3>Prise de RDV en ligne</h3>
+                <p>Les patients prennent rendez-vous directement depuis leur téléphone ou ordinateur, 24h/24 et 7j/7. Plus de files d'attente téléphoniques.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🩺</span>
+                <h3>Examen clinique digitalisé</h3>
+                <p>Saisie numérique des données cliniques lors de chaque consultation. Dossiers complets, accessibles et sécurisés.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">💊</span>
+                <h3>E-prescription</h3>
+                <p>Émission d'ordonnances électroniques conformes, transmises instantanément au patient.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">📄</span>
+                <h3>Documents médicaux</h3>
+                <p>Gestion centralisée des documents : comptes rendus, bilans, certificats. Archivage automatique et sécurisé.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🎥</span>
+                <h3>Téléconsultation</h3>
+                <p>Consultations vidéo intégrées à la plateforme. Médecin et patient connectés en quelques secondes depuis n'importe où.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🔬</span>
+                <h3>Deuxième avis médical</h3>
+                <p>Demande et obtention d'un second avis médical spécialisé, entièrement en ligne et en toute confidentialité.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLATEFORME -->
+    <section id="plateforme" style="padding-top: 0;">
+        <div class="platform">
+            <div>
+                <span class="section-tag">Siladoc.com</span>
+                <h2 class="section-title">La plateforme qui digitalise votre cabinet</h2>
+                <div class="platform-features">
+                    <div class="platform-feature">
+                        <div class="feature-dot"></div>
+                        <p><strong>Agenda médical intelligent</strong>Visualisation et gestion des créneaux en temps réel.</p>
+                    </div>
+                    <div class="platform-feature">
+                        <div class="feature-dot"></div>
+                        <p><strong>Dossier patient numérique</strong>Historique complet, partageable entre professionnels de santé.</p>
+                    </div>
+                    <div class="platform-feature">
+                        <div class="feature-dot"></div>
+                        <p><strong>Espace patient sécurisé</strong>Accès personnel aux ordonnances, résultats et comptes rendus.</p>
+                    </div>
+                    <div class="platform-feature">
+                        <div class="feature-dot"></div>
+                        <p><strong>Interface intuitive</strong>Prise en main rapide, aucune formation technique requise.</p>
+                    </div>
+                </div>
+                <a href="https://siladoc.com" target="_blank" class="btn-primary" style="display:inline-block; margin-top:2rem;">Visiter siladoc.com</a>
+            </div>
+
+            <div class="platform-visual">
+                <h4>Tableau de bord — Aujourd'hui</h4>
+                <div class="mockup-row">
+                    <div class="mockup-dot"></div>
+                    Ahmed B. — 09:00
+                    <span class="mockup-badge">Confirmé</span>
+                </div>
+                <div class="mockup-row">
+                    <div class="mockup-dot"></div>
+                    Sana M. — 10:30
+                    <span class="mockup-badge">Téléconsult.</span>
+                </div>
+                <div class="mockup-row">
+                    <div class="mockup-dot"></div>
+                    Karim L. — 11:00
+                    <span class="mockup-badge">2ᵉ avis</span>
+                </div>
+                <div class="mockup-row" style="background: var(--teal-light); border: 1px dashed var(--teal-mid);">
+                    <div class="mockup-dot" style="background: var(--teal-mid);"></div>
+                    Slot libre — 14:00
+                    <span class="mockup-badge" style="background: var(--white);">Disponible</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section id="apropos" class="about">
+        <div class="about-inner">
+            <div>
+                <div class="about-badge">
+                    <div class="about-dot"></div> À propos de nous
+                </div>
+                <h2 class="section-title">Une startup tunisienne au service de la santé numérique</h2>
+                <p style="color: var(--gray); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                    Sila Experts est une société de développement logiciel spécialisée dans le domaine de la santé. Labellisée startup innovante, nous concevons des outils qui
+                    rapprochent les patients de leurs médecins et simplifient le quotidien des professionnels de santé.
+                </p>
+                <p style="color: var(--gray); font-size: 0.95rem; line-height: 1.8;">
+                    Notre mission : rendre la santé digitale accessible à tous, en Tunisie et au-delà.
+                </p>
+                <div class="ceo-card">
+                    <div class="ceo-avatar">MA</div>
+                    <div>
+                        <h4>Mohamed Ali Ben Chaabane</h4>
+                        <p>CEO & Co-fondateur, Sila Experts</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="values">
+                <div class="value-item">
+                    <h4>Innovation</h4>
+                    <p>Des solutions à la pointe de la technologie médicale.</p>
+                </div>
+                <div class="value-item">
+                    <h4>Accessibilité</h4>
+                    <p>Un accès aux soins simplifié pour chaque patient.</p>
+                </div>
+                <div class="value-item">
+                    <h4>Sécurité</h4>
+                    <p>Données médicales protégées et confidentielles.</p>
+                </div>
+                <div class="value-item">
+                    <h4>Fiabilité</h4>
+                    <p>Une plateforme disponible 24h/24, 7j/7.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <span class="section-tag">Contact</span>
+        <h2 class="section-title">Parlons de votre projet</h2>
+        <p class="section-sub">Notre équipe est disponible pour répondre à vos questions et vous accompagner dans la digitalisation de votre cabinet.</p>
+
+        <div class="contact-wrapper">
+            <div>
+                <div class="contact-info">
+                    <a href="mailto:contact@silaexperts.com" class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <span class="contact-label">Email</span>
+                            <span class="contact-val">contact@silaexperts.com</span>
+                        </div>
+                    </a>
+                    <a href="tel:+21623124828" class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <span class="contact-label">Téléphone</span>
+                            <span class="contact-val">23 124 828</span>
+                        </div>
+                    </a>
+                    <a href="tel:+21626299599" class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <span class="contact-label">Mobile</span>
+                            <span class="contact-val">26 299 599</span>
+                        </div>
+                    </a>
+                    <div class="contact-item" style="cursor: default;">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <span class="contact-label">Adresse</span>
+                            <span class="contact-val">Tunis, Tunisie</span>
+                        </div>
+                    </div>
+                    <a href="https://siladoc.com" target="_blank" class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div>
+                            <span class="contact-label">Plateforme</span>
+                            <span class="contact-val">siladoc.com</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Envoyer un message</h3>
+                <div id="form-success"
+                    style="display:none; background:#E1F5EE; border:1px solid #9FE1CB; border-radius:12px; padding:1.25rem; margin-bottom:1.25rem; color:#0F6E56; font-size:0.9rem;">
+                    ✅ Message envoyé ! Nous vous répondrons rapidement.
+                </div>
+                <div class="form-group">
+                    <label>Nom complet</label>
+                    <input type="text" id="f-nom" placeholder="Votre nom">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="f-email" placeholder="votre@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Sujet</label>
+                    <input type="text" id="f-sujet" placeholder="Demande de démo, partenariat...">
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea id="f-message" placeholder="Décrivez votre projet ou votre demande..."></textarea>
+                </div>
+                <button class="form-submit" onclick="envoyerMessage()">Envoyer le message →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PANNEAU ADMIN -->
+    <section id="admin" style="display:none; background:#0D1F1A; border-radius:24px; margin:0 4rem 4rem; padding:3rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem;">
+            <div>
+                <span style="font-size:0.75rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:#9FE1CB;">Panneau admin</span>
+                <h2 style="font-family:'DM Serif Display',serif; color:#fff; font-size:1.8rem; letter-spacing:-0.02em; margin-top:0.3rem;">Messages reçus</h2>
+            </div>
+            <button onclick="fermerAdmin()"
+                style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.6); padding:0.5rem 1.25rem; border-radius:100px; cursor:pointer; font-family:'DM Sans',sans-serif; font-size:0.85rem;">Fermer
+                ✕</button>
+        </div>
+        <div id="admin-compteur" style="font-size:0.85rem; color:rgba(255,255,255,0.4); margin-bottom:1.5rem;"></div>
+        <div id="admin-liste"></div>
+        <button onclick="viderMessages()"
+            style="margin-top:2rem; background:rgba(226,75,74,0.15); border:1px solid rgba(226,75,74,0.3); color:#F09595; padding:0.6rem 1.5rem; border-radius:100px; cursor:pointer; font-family:'DM Sans',sans-serif; font-size:0.85rem;">Vider
+            tous les messages</button>
+    </section>
+
+    <!-- FOOTER -->
+    <div style="text-align:center; padding:1rem; margin-bottom:1rem;">
+        <button onclick="ouvrirAdmin()"
+            style="background:transparent; border:none; color:#B4B2A9; font-size:0.75rem; cursor:pointer; font-family:'DM Sans',sans-serif; letter-spacing:0.05em;">⚙ Admin</button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div style="display:flex;align-items:center;gap:0.6rem;">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D0BAQFn_rjTHWdpJg/company-logo_200_200/B4DZUUtvDBHYAI-/0/1739809288760/sila_experts_logo?e=2147483647&v=beta&t=H1RBZ0qPW14GfdcCRBcmzwAKfT6m7N4w0p_FKDgOGtM"
+                        alt="Sila Experts" style="height:36px;width:36px;border-radius:8px;object-fit:cover;opacity:0.9;">
+                    <div class="footer-logo">Sila<span>Experts</span></div>
+                </div>
+                <p>Startup labellisée spécialisée dans le développement logiciel pour la santé numérique. Basée à Tunis, Tunisie.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#plateforme">Plateforme Siladoc</a></li>
+                    <li><a href="#apropos">À propos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:contact@silaexperts.com">contact@silaexperts.com</a></li>
+                    <li><a href="tel:+21623124828">23 124 828</a></li>
+                    <li><a href="tel:+21626299599">26 299 599</a></li>
+                    <li><a href="https://siladoc.com" target="_blank">siladoc.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 Sila Experts. Tous droits réservés.</span>
+            <span>Tunis, Tunisie</span>
+        </div>
+    </footer>
+
+
+
+    <script>
+        function envoyerMessage() {
+            var nom = document.getElementById('f-nom').value.trim();
+            var email = document.getElementById('f-email').value.trim();
+            var sujet = document.getElementById('f-sujet').value.trim();
+            var message = document.getElementById('f-message').value.trim();
+            if (!nom || !email || !message) {
+                alert('Merci de remplir votre nom, email et message.');
+                return;
+            }
+            var msgs = JSON.parse(localStorage.getItem('silaexperts_messages') || '[]');
+            msgs.push({
+                id: Date.now(),
+                nom: nom,
+                email: email,
+                sujet: sujet || '(Sans sujet)',
+                message: message,
+                date: new Date().toLocaleString('fr-FR')
+            });
+            localStorage.setItem('silaexperts_messages', JSON.stringify(msgs));
+            document.getElementById('f-nom').value = '';
+            document.getElementById('f-email').value = '';
+            document.getElementById('f-sujet').value = '';
+            document.getElementById('f-message').value = '';
+            var ok = document.getElementById('form-success');
+            ok.style.display = 'block';
+            setTimeout(function () { ok.style.display = 'none'; }, 4000);
+        }
+
+        function ouvrirAdmin() {
+            var mdp = prompt('Mot de passe admin :');
+            if (mdp !== 'silaexperts2025') {
+                alert('Mot de passe incorrect.');
+                return;
+            }
+            afficherAdmin();
+            var panel = document.getElementById('admin');
+            panel.style.display = 'block';
+            panel.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function fermerAdmin() {
+            document.getElementById('admin').style.display = 'none';
+        }
+
+        function afficherAdmin() {
+            var msgs = JSON.parse(localStorage.getItem('silaexperts_messages') || '[]');
+            var liste = document.getElementById('admin-liste');
+            document.getElementById('admin-compteur').textContent = msgs.length + ' message(s) enregistre(s)';
+            if (msgs.length === 0) {
+                liste.innerHTML = '<p style="color:rgba(255,255,255,0.3);font-size:0.9rem;">Aucun message pour instant.</p>';
+                return;
+            }
+            var html = '';
+            msgs.slice().reverse().forEach(function (m) {
+                html += '<div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:1.5rem;margin-bottom:1rem;">';
+                html += '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;">';
+                html += '<div>';
+                html += '<span style="font-weight:500;color:#fff;font-size:0.95rem;">' + esc(m.nom) + '</span>';
+                html += '<span style="color:#9FE1CB;font-size:0.85rem;margin-left:0.75rem;">' + esc(m.email) + '</span>';
+                html += '</div>';
+                html += '<span style="font-size:0.75rem;color:rgba(255,255,255,0.3);">' + m.date + '</span>';
+                html += '</div>';
+                html += '<div style="font-size:0.8rem;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.5rem;">' + esc(m.sujet) + '</div>';
+                html += '<p style="color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.6;margin:0;">' + esc(m.message) + '</p>';
+                html += '</div>';
+            });
+            liste.innerHTML = html;
+        }
+
+        function viderMessages() {
+            if (confirm('Supprimer tous les messages ?')) {
+                localStorage.removeItem('silaexperts_messages');
+                afficherAdmin();
+            }
+        }
+
+        function esc(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+    </script>
+
+</body>
+
+</html>
