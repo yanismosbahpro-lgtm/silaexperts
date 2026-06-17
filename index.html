@@ -1215,27 +1215,39 @@
             var email = document.getElementById('f-email').value.trim();
             var sujet = document.getElementById('f-sujet').value.trim();
             var message = document.getElementById('f-message').value.trim();
+
             if (!nom || !email || !message) {
                 alert('Merci de remplir votre nom, email et message.');
                 return;
             }
-            var msgs = JSON.parse(localStorage.getItem('silaexperts_messages') || '[]');
-            msgs.push({
-                id: Date.now(),
-                nom: nom,
-                email: email,
-                sujet: sujet || '(Sans sujet)',
-                message: message,
-                date: new Date().toLocaleString('fr-FR')
-            });
-            localStorage.setItem('silaexperts_messages', JSON.stringify(msgs));
-            document.getElementById('f-nom').value = '';
-            document.getElementById('f-email').value = '';
-            document.getElementById('f-sujet').value = '';
-            document.getElementById('f-message').value = '';
-            var ok = document.getElementById('form-success');
-            ok.style.display = 'block';
-            setTimeout(function () { ok.style.display = 'none'; }, 4000);
+
+            var formData = new FormData();
+            formData.append('nom', nom);
+            formData.append('email', email);
+            formData.append('sujet', sujet);
+            formData.append('message', message);
+
+            fetch('contact.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(function (r) { return r.json(); })
+                .then(function (data) {
+                    if (data.success) {
+                        document.getElementById('f-nom').value = '';
+                        document.getElementById('f-email').value = '';
+                        document.getElementById('f-sujet').value = '';
+                        document.getElementById('f-message').value = '';
+                        var ok = document.getElementById('form-success');
+                        ok.style.display = 'block';
+                        setTimeout(function () { ok.style.display = 'none'; }, 4000);
+                    } else {
+                        alert('Erreur : ' + data.message);
+                    }
+                })
+                .catch(function () {
+                    alert('Erreur de connexion au serveur.');
+                });
         }
 
         function ouvrirAdmin() {
