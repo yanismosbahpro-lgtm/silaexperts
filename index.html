@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -40,7 +41,6 @@
             line-height: 1.7;
         }
 
-        /* NAV */
         nav {
             position: fixed;
             top: 0;
@@ -100,7 +100,6 @@
             color: var(--white) !important;
         }
 
-        /* HERO */
         .hero {
             min-height: 100vh;
             display: grid;
@@ -197,7 +196,6 @@
             border-color: var(--teal);
         }
 
-        /* Hero visual */
         .hero-visual {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -273,7 +271,6 @@
             font-size: 1.1rem;
         }
 
-        /* STATS */
         .stats {
             display: flex;
             gap: 0;
@@ -308,7 +305,6 @@
             margin: 0;
         }
 
-        /* SECTION GÉNÉRIQUE */
         section {
             padding: 5rem 4rem;
         }
@@ -339,7 +335,6 @@
             margin-bottom: 3rem;
         }
 
-        /* SERVICES */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -397,7 +392,6 @@
             line-height: 1.65;
         }
 
-        /* PLATEFORME */
         .platform {
             background: var(--teal-light);
             border-radius: 24px;
@@ -488,7 +482,6 @@
             font-weight: 500;
         }
 
-        /* ABOUT */
         .about {
             background: var(--white);
             border-radius: 24px;
@@ -585,7 +578,6 @@
             line-height: 1.5;
         }
 
-        /* CONTACT */
         .contact-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -714,7 +706,6 @@
             background: var(--teal-dark);
         }
 
-        /* FOOTER */
         footer {
             background: var(--dark);
             color: rgba(255, 255, 255, 0.7);
@@ -782,7 +773,6 @@
             color: var(--teal-mid);
         }
 
-        /* ANIMATIONS */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -869,7 +859,6 @@
 
 <body>
 
-    <!-- NAV -->
     <nav>
         <a href="#" style="display:flex;align-items:center;gap:0.6rem;text-decoration:none;">
             <img src="https://media.licdn.com/dms/image/v2/D4D0BAQFn_rjTHWdpJg/company-logo_200_200/B4DZUUtvDBHYAI-/0/1739809288760/sila_experts_logo?e=2147483647&v=beta&t=H1RBZ0qPW14GfdcCRBcmzwAKfT6m7N4w0p_FKDgOGtM"
@@ -884,7 +873,6 @@
         </ul>
     </nav>
 
-    <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
             <span class="hero-label">Startup labellisée · Tunis, Tunisie</span>
@@ -915,7 +903,6 @@
         </div>
     </section>
 
-    <!-- STATS -->
     <div class="stats">
         <div class="stat">
             <span class="stat-num">siladoc.com</span>
@@ -935,7 +922,6 @@
         </div>
     </div>
 
-    <!-- SERVICES -->
     <section id="services">
         <span class="section-tag">Nos services</span>
         <h2 class="section-title">Tout ce dont un cabinet médical a besoin, en une seule plateforme</h2>
@@ -975,7 +961,6 @@
         </div>
     </section>
 
-    <!-- PLATEFORME -->
     <section id="plateforme" style="padding-top: 0;">
         <div class="platform">
             <div>
@@ -1028,7 +1013,6 @@
         </div>
     </section>
 
-    <!-- À PROPOS -->
     <section id="apropos" class="about">
         <div class="about-inner">
             <div>
@@ -1073,7 +1057,6 @@
         </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
         <span class="section-tag">Contact</span>
         <h2 class="section-title">Parlons de votre projet</h2>
@@ -1147,7 +1130,6 @@
         </div>
     </section>
 
-    <!-- PANNEAU ADMIN -->
     <section id="admin" style="display:none; background:#0D1F1A; border-radius:24px; margin:0 4rem 4rem; padding:3rem;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem;">
             <div>
@@ -1165,13 +1147,11 @@
             tous les messages</button>
     </section>
 
-    <!-- FOOTER -->
     <div style="text-align:center; padding:1rem; margin-bottom:1rem;">
         <button onclick="ouvrirAdmin()"
             style="background:transparent; border:none; color:#B4B2A9; font-size:0.75rem; cursor:pointer; font-family:'DM Sans',sans-serif; letter-spacing:0.05em;">⚙ Admin</button>
     </div>
 
-    <!-- FOOTER -->
     <footer>
         <div class="footer-top">
             <div class="footer-brand">
@@ -1206,8 +1186,6 @@
             <span>Tunis, Tunisie</span>
         </div>
     </footer>
-
-
 
     <script>
         function envoyerMessage() {
@@ -1302,19 +1280,189 @@
             return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
         }
     </script>
-    <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6a329f24c770bc1d46b1f79e/1jrarrbu9';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
+
+<!-- CHATBOT SILA EXPERTS -->
+<style>
+  #sila-chat-bubble {
+    position: fixed; bottom: 24px; right: 24px;
+    width: 60px; height: 60px;
+    background: #1D9E75;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(29,158,117,0.4);
+    z-index: 9999;
+    transition: transform 0.2s;
+    font-size: 1.6rem;
+  }
+  #sila-chat-bubble:hover { transform: scale(1.08); }
+
+  #sila-chat-window {
+    position: fixed; bottom: 96px; right: 24px;
+    width: 340px; max-height: 480px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9999;
+    font-family: 'DM Sans', sans-serif;
+  }
+  #sila-chat-window.open { display: flex; }
+
+  #sila-chat-header {
+    background: #1D9E75; color: #fff;
+    padding: 1rem 1.25rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  #sila-chat-header div { font-weight: 500; font-size: 0.95rem; }
+  #sila-chat-header small { opacity: 0.85; font-size: 0.75rem; display: block; }
+  #sila-chat-close { cursor: pointer; font-size: 1.1rem; background: none; border: none; color: #fff; }
+
+  #sila-chat-body {
+    flex: 1; padding: 1rem;
+    overflow-y: auto;
+    display: flex; flex-direction: column; gap: 0.6rem;
+    background: #F7FAF9;
+    max-height: 320px;
+  }
+
+  .sila-msg-bot, .sila-msg-user {
+    max-width: 80%;
+    padding: 0.6rem 0.85rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+  .sila-msg-bot { background: #E1F5EE; color: #0D1F1A; align-self: flex-start; border-bottom-left-radius: 2px; }
+  .sila-msg-user { background: #1D9E75; color: #fff; align-self: flex-end; border-bottom-right-radius: 2px; }
+
+  #sila-chat-suggestions {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    padding: 0 1rem 0.75rem;
+    background: #F7FAF9;
+  }
+  .sila-suggestion {
+    background: #fff; border: 1px solid #9FE1CB; color: #0F6E56;
+    border-radius: 100px; padding: 0.35rem 0.75rem;
+    font-size: 0.78rem; cursor: pointer;
+    transition: background 0.15s;
+  }
+  .sila-suggestion:hover { background: #E1F5EE; }
+
+  #sila-chat-input-row {
+    display: flex; gap: 0.5rem;
+    padding: 0.75rem;
+    border-top: 1px solid #E8EEEC;
+    background: #fff;
+  }
+  #sila-chat-input {
+    flex: 1; border: 1px solid #E8EEEC; border-radius: 100px;
+    padding: 0.5rem 0.9rem; font-size: 0.85rem; outline: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+  #sila-chat-input:focus { border-color: #1D9E75; }
+  #sila-chat-send {
+    background: #1D9E75; border: none; color: #fff;
+    width: 36px; height: 36px; border-radius: 50%;
+    cursor: pointer; font-size: 1rem; flex-shrink: 0;
+  }
+</style>
+
+<div id="sila-chat-bubble" onclick="silaToggleChat()">💬</div>
+
+<div id="sila-chat-window">
+  <div id="sila-chat-header">
+    <div>Assistant Sila Experts
+      <small>● En ligne</small>
+    </div>
+    <button id="sila-chat-close" onclick="silaToggleChat()">✕</button>
+  </div>
+  <div id="sila-chat-body"></div>
+  <div id="sila-chat-suggestions">
+    <span class="sila-suggestion" onclick="silaSend('Prendre rendez-vous')">Prendre rendez-vous</span>
+    <span class="sila-suggestion" onclick="silaSend('Vos services')">Vos services</span>
+    <span class="sila-suggestion" onclick="silaSend('Contact')">Contact</span>
+  </div>
+  <div id="sila-chat-input-row">
+    <input type="text" id="sila-chat-input" placeholder="Écrivez votre message..." onkeypress="if(event.key==='Enter') silaSendInput()">
+    <button id="sila-chat-send" onclick="silaSendInput()">➤</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  var responses = [
+    { keys: ['bonjour','salut','hello','bonsoir'], reply: "Bonjour 👋 ! Comment puis-je vous aider aujourd'hui ?" },
+    { keys: ['rendez-vous','rdv','reserver','réserver'], reply: "Pour prendre rendez-vous, rendez-vous sur notre page dédiée ou contactez-nous directement au 23 124 828." },
+    { keys: ['service','services','propose','offre'], reply: "Nous proposons la prise de RDV en ligne, la téléconsultation, l'e-prescription, le deuxième avis médical et la gestion de documents médicaux." },
+    { keys: ['contact','telephone','téléphone','email','mail'], reply: "Vous pouvez nous contacter par email à contact@silaexperts.com ou par téléphone au 23 124 828 / 26 299 599." },
+    { keys: ['prix','tarif','combien','coût','cout'], reply: "Pour connaître nos tarifs, le mieux est de nous contacter directement, ils dépendent de vos besoins spécifiques." },
+    { keys: ['teleconsultation','téléconsultation','video','vidéo'], reply: "La téléconsultation vous permet de consulter un médecin en vidéo, directement depuis chez vous, sans déplacement." },
+    { keys: ['avis','deuxieme avis','second avis'], reply: "Le deuxième avis médical vous permet d'obtenir l'analyse d'un spécialiste sur votre dossier, en ligne et en toute confidentialité." },
+    { keys: ['merci','thanks'], reply: "Avec plaisir 😊 N'hésitez pas si vous avez d'autres questions !" },
+    { keys: ['urgence','urgent'], reply: "Pour une urgence médicale, contactez directement les services d'urgence. Notre plateforme n'est pas destinée aux urgences vitales." }
+  ];
+
+  var defaultReply = "Je n'ai pas bien compris votre demande. Vous pouvez me parler de nos services, de la prise de rendez-vous, ou nous contacter directement au 23 124 828.";
+
+  window.silaToggleChat = function() {
+    var win = document.getElementById('sila-chat-window');
+    win.classList.toggle('open');
+    if (win.classList.contains('open') && document.getElementById('sila-chat-body').children.length === 0) {
+      silaAddBotMessage("Bonjour ! Bienvenue 👋 Comment puis-je vous aider aujourd'hui ?");
+    }
+  };
+
+  function silaAddUserMessage(text) {
+    var body = document.getElementById('sila-chat-body');
+    var div = document.createElement('div');
+    div.className = 'sila-msg-user';
+    div.textContent = text;
+    body.appendChild(div);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  function silaAddBotMessage(text) {
+    var body = document.getElementById('sila-chat-body');
+    var div = document.createElement('div');
+    div.className = 'sila-msg-bot';
+    div.textContent = text;
+    body.appendChild(div);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  function silaGetReply(message) {
+    var lower = message.toLowerCase();
+    for (var i = 0; i < responses.length; i++) {
+      for (var j = 0; j < responses[i].keys.length; j++) {
+        if (lower.indexOf(responses[i].keys[j]) !== -1) {
+          return responses[i].reply;
+        }
+      }
+    }
+    return defaultReply;
+  }
+
+  window.silaSend = function(text) {
+    silaAddUserMessage(text);
+    setTimeout(function() {
+      silaAddBotMessage(silaGetReply(text));
+    }, 500);
+  };
+
+  window.silaSendInput = function() {
+    var input = document.getElementById('sila-chat-input');
+    var text = input.value.trim();
+    if (!text) return;
+    silaSend(text);
+    input.value = '';
+  };
 })();
 </script>
-<!--End of Tawk.to Script-->
+
 </body>
 
 </html>
+
